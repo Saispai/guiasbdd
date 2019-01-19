@@ -1,0 +1,92 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Cómo transferir archivos por FTP - Hackea tu Switch</title>
+  <link rel="shortcut icon" href="../img/logo.png" type="image/x-icon" />
+  <link rel="icon" href="../img/logo.png" type="image/x-icon" />
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../css/style.css" rel="stylesheet" type="text/css">
+  <meta name="author" content="Saispai">
+  <meta name="description" content="Guía para transferir archivos por FTP a una Nintendo Switch.">
+  <meta property="og:image" content="../img/logo2.png">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:site_name" content="Hackea tu Switch">
+  <meta property="og:title" content="Cómo transferir archivos por FTP - Hackea tu Switch">
+  <meta property="og:url" content="https://hackeatuswitch.netlify.com/guia/como-transferir-archivos-por-ftp">
+  <link rel="canonical" href="https://hackeatuswitch.netlify.com/guia/como-transferir-archivos-por-ftp">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131530003-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-131530003-1');
+</script>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href=".."><img src="../img/logo.png" style="border: 0" width="30" height="30" alt=""></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-md-center" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" style="font-weight: 700; padding-right: 2em" href="..">Inicio</a>
+      </li>
+	  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="paso-1-material-necesario" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Instalar CFW</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="paso-1-material-necesario">Paso 1: Material necesario</a>
+          <a class="dropdown-item" href="paso-2-entrar-en-rcm">Paso 2: Entrar en RCM</a>
+          <a class="dropdown-item" href="paso-3-instalacion">Paso 3: Instalación</a>
+        </div>
+      </li>
+	  <li class="nav-item">
+        <a class="nav-link" href="instalar-nsp">Instalar juegos</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="otras-guias" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Otras guías</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="como-jugar-online-en-una-switch-hackeada">Jugar on-line en una Switch hackeada</a>
+          <a class="dropdown-item" href="como-actualizar-una-switch-hackeada">Actualizar una Switch hackeada</a>
+          <a class="dropdown-item" href="como-restaurar-nand-o-desinstalar-cfw">Restaurar la NAND (o desinstalar CFW)</a>
+		  <a class="dropdown-item" href="como-transferir-archivos-por-ftp">Transferir archivos por FTP</a>
+		  <a class="dropdown-item" href="como-inyectar-hekate-desde-android">Inyectar CFW desde Android</a>
+        </div>
+      </li>
+	  <li class="nav-item">
+        <a class="nav-link" href="../donaciones">Donaciones</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+  <div class="container-content container-fluid">
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8">
+<br>
+<h1>Cómo transferir archivos por FTP</h1>
+<hr>
+<p class="p-box">La velocidad de transferencia por FTP suele ser bastante lenta, así que solo es recomendable usarla para archivos pequeños.</p>
+<p>SDSetup incluye por defecto un módulo (<i>sys-ftpd</i>) que corre un servidor FTP en segundo plano en tu Switch, sin necesidad de abrir ninguna aplicación. Dicho servidor FTP te permite, desde tu ordenador, organizar los archivos de la tarjeta SD insertada en tu consola sin necesidad de sacarla y transferir archivos a esta, todo a través de tu red local. Para usarlo, primero necesitas tener conectada la consola al mismo router que tu ordenador.</p>
+<p>Si seguiste esta guía desde el principio, seguramente borraste la configuración de internet de tu consola. Ahora vas a tener que volver a conectarla, pero primero hay que tomar ciertas precauciones para no que tu consola no acabe baneada de los servidores de Nintendo. Ten también en cuenta que, aunque vas a volver a conectarla a internet, no podrás conectarte a los servidores de Nintendo.</p>
+<p>Ve a la <code>Configuración de la consola</code>, selecciona <code>Internet</code> y dale a <code>Configuración de internet</code>. Ve abajo del todo de la lista y selecciona <code>Configuración manual</code>. Ahora tienes que introducir manualmente los datos de tu router. El nombre de la conexión da igual, SSID es el nombre por el que aparece en la lista de conexiones, y en clave de seguridad debes seleccionar el tipo de contraseña de tu router (la mayoría de routers actuales usan WPA2-PSK por defecto), aceptar e introducir la clave. Ahora selecciona <i>Configuración del DNS</i>, selecciona <i>Modo manual</i> e introduce <code>163.172.141.219</code> en <i>DNS primario</i> y <code>45.248.48.62</code> en <i>DNS secundario</i>. Dale al botón de <code>Guardar</code> que hay a la derecha y conéctate a la red.</p>
+<p>Ahora, todavía dentro de la configuración de Internet, mira bajo <code>Estado de conexión</code> y anota el número que sale en <code>Dirección IP</code>.</p>
+<p>En tu ordenador, abre el explorador de archivos (o cualquier carpeta) y, en la barra de dirección, escribe <code>ftp://IP:5000</code>, sustituyendo IP por la dirección que acabas de anotar. Por ejemplo, en mi caso sería <code>ftp://192.168.1.125:5000</code>. Se te abrirá la raíz de la SD que tienes insertada en la consola. Ahora puedes copiar, mover y borrar archivos como si tuvieras insertada la SD en tu ordenador.</p>
+<div style="text-align: center"><div style="display: inline-block"><img src="../img/ftpruta.png"></div></div><br><br>
+      </div>
+      <div class="col-lg-2"></div>
+    </div>
+  </div>
+<footer><nav class="navbar navbar-dark bg-dark" style="padding-bottom: 0.5em; padding-top: 0.5em"><a href="https://twitter.com/Saispai">&copy; 2019  Saispai</a></nav></footer>
+</body>
+
+</html>
